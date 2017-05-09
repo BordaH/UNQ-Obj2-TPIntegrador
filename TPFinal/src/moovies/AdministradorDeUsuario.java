@@ -49,8 +49,13 @@ public class AdministradorDeUsuario {
 	}
 	
 	
-	public ArrayList<Usuario> diezUsuariosMasActivos(){
+	public ArrayList<Usuario> diezUsuariosMasActivos()
+	{
 		
-		return Collections.sort(usuarios, usuarios.reverseOrder());
+		 Comparator<Usuario> comparador = Collections.reverseOrder();
+		
+		 usuarios.sort(comparador);
+		 
+		 return usuarios;
 	}
 }
