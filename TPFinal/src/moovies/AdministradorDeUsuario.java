@@ -10,25 +10,24 @@ public class AdministradorDeUsuario {
 	private ArrayList<Usuario> usuarios =new ArrayList<Usuario>();
 
 	public AdministradorDeUsuario() {
-		usuarios.add(new Usuario(0, 0 , "null","null",0,"null", "null", 0));
+		usuarios.add(new Usuario("null", "null", 0,"null","null", 0));
 	}
 
-	public void registrarUsuario(int idU, int edadU, String generoU, String ocupacionU, int cpU, String nombreU,
-			String apellidoU, int cantCalificaiones) {
-		usuarios.add(new Usuario(idU, edadU, generoU, ocupacionU, cpU, nombreU, apellidoU, cantCalificaiones));
+	public void registrarUsuario(String nombreU, String apellidoU, int edadU, String generoU, String ocupacionU, int cpU) {
+		usuarios.add(new Usuario( nombreU, apellidoU,edadU, generoU, ocupacionU, cpU));
 	}
 
-	public int getCantidadDeUsuarios() {
+	public int cantidadDeUsuarios() {
 		return usuarios.size();
 	}
 
-	public Usuario buscarUsuario(int idU){
+	public Usuario buscarUsuario(String nombreU){
 	Iterator<Usuario> buscado = usuarios.iterator();
 	int posicionBuscada = 0;
 		while(buscado.hasNext() && posicionBuscada ==0 ){
 			Usuario usuarioB = buscado.next();
 			int idBuscado = 0 ;
-			if (usuarioB.getId() != idU){
+			if (usuarioB.darNombre() != nombreU){
 				idBuscado = idBuscado + 1 ;
 			}else{
 				
