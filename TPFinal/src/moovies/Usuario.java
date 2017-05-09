@@ -1,51 +1,34 @@
 package moovies;
 
 
-public class Usuario implements Comparable<Usuario>{
-
-	private int id;
+public class Usuario implements Comparable<Usuario> {
+	
+	private String nombre;
+	private String apellido;
 	private int edad;
 	private String genero;
 	private String ocupacion;
 	private int codigoPostal;
-	private String nombre;
-	private String apellido;
-	private int cantidadDeCalificaciones;
+	private AdministradorDeCalificaciones calificador;
 
-	public Usuario(int idU, int edadU, String generoU, String ocupacionU, int cp, String nombreU, String apellidoU,
-			int cantCalificaciones) {
-		this.id = idU;
+	public Usuario( String nombreU, String apellidoU, int edadU, String generoU, String ocupacionU, int cp,
+			AdministradorDeCalificaciones calificador) {
+		this.nombre = nombreU;
+		this.apellido = apellidoU;
 		this.edad = edadU;
 		this.genero = generoU;
 		this.ocupacion = ocupacionU;
 		this.codigoPostal = cp;
-		this.nombre = nombreU;
-		this.apellido = apellidoU;
-		this.cantidadDeCalificaciones = cantCalificaciones;
-	}
-
-	public Usuario() {
-		// TODO Auto-generated constructor stub
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public int getId() {
-		return id ;
+		this.calificador = calificador;
 	}
 	
-	public int getCantidadDeCalificaciones() {
-		return cantidadDeCalificaciones;
-	}
-
-	public void contabilizarCalificacion() {
-		this.cantidadDeCalificaciones = this.cantidadDeCalificaciones + 1;
+	public String darNombre(){
+		return nombre ;
+		
 	}
 	
 	@Override
 	public int compareTo(Usuario u) {
-		return Integer.valueOf(this.getId()).compareTo(u.getId());
+		return this.darNombre().compareTo(u.darNombre());
 	}
 }
