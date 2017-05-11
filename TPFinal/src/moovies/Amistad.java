@@ -38,4 +38,26 @@ public class Amistad
 		
 	}
 
+	/*
+	 * 
+	 * Precondicion: unUsuario debe estar dentro de los miembros de la Amistad
+	 * Postcondicion: Ninguna
+	 * Proposito: Retornar al Usuario que no es unUsuario y esta dentro de la Amistad
+	 * 
+	 */
+	
+	public Usuario darAmigoDe(Usuario unUsuario)
+	{
+		
+		if ( miembros.get(0) == unUsuario )
+		{
+			
+			return miembros.get(1);
+			
+		}
+		
+		return miembros.get(0);
+		
+	}
+
 }

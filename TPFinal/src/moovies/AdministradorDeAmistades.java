@@ -57,12 +57,8 @@ public class AdministradorDeAmistades
 	 * 
 	 */
 	
-	public void registrarAmistadEntre(Usuario usuarioSolicitante, Usuario usuarioReceptor)
+	public void registrarAmistad(Amistad unaAmistad)
 	{
-		
-		Amistad unaAmistad = new Amistad();
-		
-		unaAmistad.establecerAmistadEntre(usuarioSolicitante, usuarioReceptor);
 		
 		amistades.add(unaAmistad);
 		
@@ -91,6 +87,34 @@ public class AdministradorDeAmistades
 			
 		}
 
+	}
+
+	/*
+	 * 
+	 * Precondicion: Ninguna
+	 * Postcondicion: Ninguna
+	 * Proposito: Retornar los usuarios que se encuentran en Amistades con unUsuario
+	 * 
+	 */
+	
+	public ArrayList<Usuario> darAmigosDe(Usuario unUsuario)
+	{
+		
+		ArrayList<Usuario> listaDeAmigos = new ArrayList<Usuario>();
+		
+		for (Amistad unaAmistad: amistades)
+		{
+		    
+			if ( unaAmistad.estaIncluido(unUsuario) )
+			{
+				
+				listaDeAmigos.add(unaAmistad.darAmigoDe(unUsuario));
+				
+			}
+			
+		}
+
+		return listaDeAmigos;
 	}
 
 
