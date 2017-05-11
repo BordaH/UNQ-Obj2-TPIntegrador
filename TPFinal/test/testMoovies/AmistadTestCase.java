@@ -25,5 +25,21 @@ public class AmistadTestCase
 		assertTrue(amistadEntreDosUsuarios.estaIncluido(usuarioReceptor));
 		
 	}
+	
+	 @Test
+	public void testDadaUnaAmistadQueSeCreaEntreDosUsuariosSeVerificaQueSepaDarAlAmigoDeCadaUsuarioIncluido()
+	{
+		
+		Amistad amistadEntreDosUsuarios = new Amistad();
+			
+		Usuario usuarioSolicitante = new Usuario();
+		Usuario usuarioReceptor = new Usuario();
+			
+		amistadEntreDosUsuarios.establecerAmistadEntre(usuarioSolicitante,usuarioReceptor);
+		 
+		assertEquals(amistadEntreDosUsuarios.darAmigoDe(usuarioSolicitante), usuarioReceptor);
+		assertEquals(amistadEntreDosUsuarios.darAmigoDe(usuarioReceptor), usuarioSolicitante);
+		 
+	}
 
 }
